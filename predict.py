@@ -1,4 +1,4 @@
-import numpy as np
+import  numpy as np
 from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense
@@ -28,7 +28,7 @@ def predict():
     num_classes = len(class_dictionary)
 
     # add the path to your test image below
-    image_path = 'actualpics/6.jpg'
+    image_path = 'actualpics/2.jpg'
 
     orig = cv2.imread(image_path)
 

@@ -18,7 +18,7 @@ validation_data_dir = 'food-101/testtrain'
 # number of epochs to train top model
 epochs = 50
 # batch size used by flow_from_directory and predict_generator
-batch_size = 16
+batch_size = 128
 
 
 def train_top_model():
@@ -62,8 +62,8 @@ def train_top_model():
 
     model = Sequential()
     model.add(Flatten(input_shape=train_data.shape[1:]))
+    model.add(Dropout(0.7))
     model.add(Dense(256, activation='relu'))
-    model.add(Dropout(0.5))
     model.add(Dense(num_classes, activation='softmax'))
 
     model.compile(optimizer='adam',

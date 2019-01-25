@@ -3,3 +3,6 @@ food-101
 __pycache__
 *.npy
 *.h5
+*.sql
+useruploads
+
