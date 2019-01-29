@@ -67,7 +67,8 @@ def predict():
     inv_map = {v: k for k, v in class_dictionary.items()}
 
     label = inv_map[inID]
-
+    
+    print(type(label))
     # get the prediction label
     print("Image ID: {}, Label: {}".format(inID, label))
 
