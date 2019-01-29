@@ -29,14 +29,15 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             predicted_food = predict('caloree/static/uploads/' + filename)
-            image_url = '~/CaloREE/caloree/uploads/' + filename
             name = Food.query.filter_by(name=predicted_food).first().name
+            name = name.replace("_", " ")
+            name = name.title()
             calorie = Food.query.filter_by(name=predicted_food).first().calorie
             carbs = Food.query.filter_by(name=predicted_food).first().carbs
             fibre = Food.query.filter_by(name=predicted_food).first().fibre
             fats = Food.query.filter_by(name=predicted_food).first().fats
             protein = Food.query.filter_by(name=predicted_food).first().protein
-            return render_template('prediction.html', name=name, calorie=calorie, carbs=carbs, fibre=fibre, fats=fats, protein=protein, image=image_url)
+            return render_template('prediction.html', name=name, calorie=calorie, carbs=carbs, fibre=fibre, fats=fats, protein=protein, filename=filename)
                 
     return render_template('Index.html')
 
