@@ -119,6 +119,7 @@
     border-radius: 10px; /* Rounded corners */
     font-size: 14px; /* Increase font size */
     text-decoration: none;
+    font-family: 'Rubik', sans-serif;
 }
 
 .uploadPicBtn {
@@ -135,6 +136,7 @@
     border-radius: 10px; /* Rounded corners */
     font-size: 14px; /* Increase font size */
     text-decoration: none;
+    font-family: 'Rubik', sans-serif;
 }
 
 .takePicBtn:hover, .uploadPicBtn:hover, .signIn:hover, .signUp:hover {
