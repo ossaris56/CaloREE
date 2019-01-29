@@ -31,3 +31,12 @@ function carousel() {
     x[myIndex - 1].style.display = "block";
     setTimeout(carousel, 3000); // Change image every 2 seconds
 }
+
+document.getElementById("uploadPicture").onchange = function() {
+    document.getElementById("uploadForm").submit();
+};
+
+
+document.getElementById("uploadPicture2").onchange = function() {
+    document.getElementById("uploadForm").submit();
+};

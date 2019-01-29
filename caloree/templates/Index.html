@@ -13,12 +13,10 @@
 </head>
 <body class="backgroundImg">
     <div class="content container">
-        <label class="takePicBtn" title="Take Picture">Take Picture
-            <input type="file" accept="image/*;capture=camera">
-        </label>
-        <label class="uploadPicBtn" title="Upload Picture">Upload Picture
-            <input type="file" accept="image/*;capture=camera">
-        </label>
+        <form method=POST id="uploadForm" enctype=multipart/form-data>
+            <input type="file" id="uploadPicture" name="pic" accept="image/*;capture=camera" class="takePicBtn" value="Take Picture">
+            <input type="file" id="uploadPicture2" name="pic" accept="image/*;capture=camera" class="uploadPicBtn" value="Upload Picture">
+        </form>
         <a href="auth\login\login.html" class="signIn">Sign In</a>
         <a href="auth\register\register.html" class="signUp">Sign Up</a>
         <div class="mySlides bgcolour1">
