@@ -1,0 +1,171 @@
+﻿body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #777;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.backgroundImg {
+    background-image: url('../media/mainBackgroundImg.jpg');
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mySlides {
+    display: none;
+}
+
+.bgcolour1 {
+    background-color: #f9bac5;
+}
+
+.bgcolour2 {
+    background-color: #93b9ce;
+}
+
+.bgcolour3 {
+    background-color: #f3f1f2;
+}
+
+.companyName {
+    position: absolute;
+    left: 13%;
+    top: 10%; 
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    color: #111;
+    padding: 18px;
+    font-size: 25px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 10px;
+}
+
+.caption1 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    color: #fff;
+}
+
+.caption2 {
+    position: absolute;
+    top: 40%;
+    left: 65%;
+    color: #fff;
+}
+
+.caption3 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    color: black;
+}
+
+.caption1, .caption2, .caption3 {
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    padding: 18px;
+    font-size: 25px;
+    font-family: 'Rubik', sans-serif;
+    letter-spacing: 10px;
+}
+
+.animatee {
+    position: relative;
+    animation: animatetop 0.4s
+}
+
+@keyframes animatetop {
+    from {
+        top: -50px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.container {
+    position: relative;
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 980px;
+    padding: 30px;
+}
+
+.getStartedBtn {
+    position: fixed; /* Fixed/sticky position */
+    top: 82%; /* Place the button at the bottom of the page */
+    left: 16%; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: white; /* Set a background color */
+    color: black; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 14px; /* Increase font size */
+    text-decoration: none;
+}
+
+.getStartedBtn:hover {
+    background-color: lightgray; /* Add a dark-grey background on hover */
+}
+
+.calorie, .carb, .fats, .protein, .fibre {
+    position: absolute;
+    top: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
+    padding: 30px;
+    border: white;
+    background-color: white;
+}
+
+.calorie {
+    left: 25%;
+}
+
+.carb {
+    left: 35%;
+}
+
+.fibre {
+    left: 45%;
+}
+
+.fats {
+    left: 55%;
+}
+
+.protein{
+    left: 63%;
+}
+
+.num, .name {
+    font-family: 'Rubik', sans-serif;
+    color: black;
+}
+
+.num {
+    font-size: 24px;
+}
+
+.name {
+    font-size: 18px;
+}
+
