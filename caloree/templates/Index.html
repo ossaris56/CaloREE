@@ -6,13 +6,20 @@
     <meta name="author" content="Heng Zi Hui & Chua Zhao Lin Jasper">
     <meta name="description" content="Assignment CaloREE landing page">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/index.css" />
     <title>CaloREE</title>
 </head>
 <body class="backgroundImg">
     <div class="content container">
-        <button class="getStartedBtn" title="Get Started">Get Started</button>
+        <form method=POST id="uploadForm" enctype=multipart/form-data>
+            <input type="file" id="uploadPicture" name="pic" accept="image/*;capture=camera" class="takePicBtn" value="Take Picture">
+            <!---<input type="file" id="uploadPicture" name="pic" accept="image/*" class="uploadPicBtn">-->
+            <input type="file" id="uploadPicture2" name="pic" accept="image/*;capture=camera" class="uploadPicBtn" value="Take Picture">
+        </form>
+        <a href="" class="signIn">Log In</a>
+        <a href="" class="signUp">Sign Up</a>
         <div class="mySlides bgcolour1">
             <img class="animatee" src="../static/media/backgroundImg1.jpg" style="height: 85vh; width: 100%;">
             <div class="companyName">
@@ -167,4 +174,5 @@
     <!-- Banana: 89calories, corn:86.04cal, dimsum-35cal-->
     <!-- still gotta add in the sign up sign in button, the calorie, and adjust the slideshow animation -->
 </body>
+<script src="{{ url_for('static',filename='js/index.js') }}"></script>
 </html>

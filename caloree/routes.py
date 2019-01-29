@@ -1,12 +1,38 @@
-from flask import Flask, render_template, flash, redirect, url_for
+from flask import Flask, render_template, flash, redirect, url_for, request
 from caloree.userdatabase import User, Food, Usercalorie
-from caloree.forms import RegistrationForm, LoginForm
+from caloree.forms import RegistrationForm, LoginForm, PictureForm
 from caloree import app, db, bcrypt
 from flask_login import login_user, logout_user
+from PIL import Image
+from werkzeug.utils import secure_filename
+import os
 
-@app.route("/")                                                                                             
-def index():                                                                                                
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route("/", methods=['GET', 'POST'])
+def index():
     return render_template('Index.html')
+
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(url_for('index')
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit a empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(url_for('index')
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                                    filename=filename))
+            return redirect(url_for('uploaded_file',
+                                    filename=filename))
 
 @app.route("/login", methods=['GET', 'POST'])                                                               
 def login():                                                                                                
@@ -32,7 +58,7 @@ def register():
     return render_template('auth/register/register.html', form=form)
 
 @app.route("/logout")                                                            
-def register():
+def logout():
     logout_user()
     return redirect(url_for('index'))
 
