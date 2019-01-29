@@ -6,33 +6,48 @@ from flask_login import login_user, logout_user
 from PIL import Image
 from werkzeug.utils import secure_filename
 import os
+from flask import send_from_directory
+from werkzeug import SharedDataMiddleware
+from caloree.predict import predict
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 @app.route("/", methods=['GET', 'POST'])
-def index():
-    return render_template('Index.html')
-
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
-            return redirect(url_for('index')
+            print('hi')
+            return redirect(request.url)
         file = request.files['file']
         # if user does not select file, browser also
-        # submit a empty part without filename
+        # submit an empty part without filename
         if file.filename == '':
             flash('No selected file')
-            return redirect(url_for('index')
+            return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                                    filename=filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+            predict('caloree/uploads/' + filename)
+            os.system("rm -r ~/CaloREE/caloree/uploads/*.jpg")
+                
+    return render_template('Index.html')
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'],
+                               filename)
+
+app.add_url_rule('/uploads/<filename>', 'uploaded_file',
+                 build_only=True)
+app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
+    '/uploads':  app.config['UPLOAD_FOLDER']
+})
 
 @app.route("/login", methods=['GET', 'POST'])                                                               
 def login():                                                                                                
@@ -61,4 +76,5 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
 
