@@ -209,6 +209,7 @@
 .num, .name {
     font-family: 'Rubik', sans-serif;
     color: black;
+    z-index: 99;
 }
 
 .num {
