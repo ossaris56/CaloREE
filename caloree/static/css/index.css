@@ -49,7 +49,7 @@
 
 .caption1 {
     position: absolute;
-    top: 40%;
+    top: 4%;
     left: 40%;
     color: #fff;
 }
@@ -69,8 +69,6 @@
 }
 
 .caption1, .caption2, .caption3 {
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
     padding: 18px;
     font-size: 25px;
     font-family: 'Rubik', sans-serif;

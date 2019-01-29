@@ -4,7 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'caloree/uploads'
+UPLOAD_FOLDER = 'caloree/static/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 app.config['SECRET_KEY'] = 'dev'                                                                            
 app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///site.db'
