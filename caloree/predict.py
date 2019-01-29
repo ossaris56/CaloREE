@@ -3,6 +3,7 @@ from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense
 from keras import applications
+from keras import backend as K
 from keras.utils.np_utils import to_categorical
 import matplotlib.pyplot as plt
 import math
@@ -27,17 +28,12 @@ def predict(image_path):
 
     num_classes = len(class_dictionary)
 
-    # add the path to your test image below
-
     orig = cv2.imread(image_path)
 
     print("[INFO] loading and preprocessing image...")
     image = load_img(image_path, target_size=(224, 224))
     image = img_to_array(image)
-
-    # important! otherwise the predictions will be '0'
     image = image / 255
-
     image = np.expand_dims(image, axis=0)
 
     # build the VGG16 network
@@ -67,16 +63,8 @@ def predict(image_path):
 
     label = inv_map[inID]
     
-    print(type(label))
     # get the prediction label
     print("Image ID: {}, Label: {}".format(inID, label))
-
-    # display the predictions with the image
-    cv2.putText(orig, "Predicted: {}".format(label), (10, 30),
-                cv2.FONT_HERSHEY_PLAIN, 1.5, (43, 99, 255), 2)
-
-    cv2.imshow("Classification", orig)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
+    K.clear_session()    
+    return label
 

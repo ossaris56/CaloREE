@@ -18,7 +18,6 @@ def upload_file():
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
-            print('hi')
             return redirect(request.url)
         file = request.files['file']
         # if user does not select file, browser also
@@ -29,8 +28,15 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            predict('caloree/uploads/' + filename)
-            os.system("rm -r ~/CaloREE/caloree/uploads/*.jpg")
+            predicted_food = predict('caloree/static/uploads/' + filename)
+            image_url = '~/CaloREE/caloree/uploads/' + filename
+            name = Food.query.filter_by(name=predicted_food).first().name
+            calorie = Food.query.filter_by(name=predicted_food).first().calorie
+            carbs = Food.query.filter_by(name=predicted_food).first().carbs
+            fibre = Food.query.filter_by(name=predicted_food).first().fibre
+            fats = Food.query.filter_by(name=predicted_food).first().fats
+            protein = Food.query.filter_by(name=predicted_food).first().protein
+            return render_template('prediction.html', name=name, calorie=calorie, carbs=carbs, fibre=fibre, fats=fats, protein=protein, image=image_url)
                 
     return render_template('Index.html')
 
@@ -38,16 +44,6 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename)
-
-app.add_url_rule('/uploads/<filename>', 'uploaded_file',
-                 build_only=True)
-app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
-    '/uploads':  app.config['UPLOAD_FOLDER']
-})
 
 @app.route("/login", methods=['GET', 'POST'])                                                               
 def login():                                                                                                
