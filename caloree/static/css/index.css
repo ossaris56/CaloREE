@@ -49,8 +49,9 @@
 
 .caption1 {
     position: absolute;
+    text-align: center;
+    width: 100%;
     top: 4%;
-    left: 40%;
     color: #fff;
 }
 
