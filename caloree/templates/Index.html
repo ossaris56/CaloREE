@@ -14,8 +14,8 @@
 <body class="backgroundImg">
     <div class="content container">
         <form method=POST id="uploadForm" enctype=multipart/form-data>
-            <input type="file" id="uploadPicture" name="pic" accept="image/*;capture=camera" class="takePicBtn" value="Take Picture">
-            <input type="file" id="uploadPicture2" name="pic" accept="image/*;capture=camera" class="uploadPicBtn" value="Upload Picture">
+            <label class="takePicBtn">Take Picture<input type="file" id="uploadPicture" name="pic" accept="image/*;capture=camera"></label>
+            <label class="uploadPicBtn">Upload Picture<input type="file" id="uploadPicture2" name="pic" accept="image/*;capture=camera"></label>
         </form>
         <a href="auth\login\login.html" class="signIn">Sign In</a>
         <a href="auth\register\register.html" class="signUp">Sign Up</a>
