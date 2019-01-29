@@ -17,12 +17,12 @@
             <label class="takePicBtn">Take Picture<input type="file" id="uploadPicture" name="file" accept="image/*;capture=camera"></label>
             <label class="uploadPicBtn">Upload Picture<input type="file" id="uploadPicture2" name="file" accept="image/*"></label>
         </form>
-        <div class="nameOfUser">Add name here</div>
-        <a href="/register" class="logOut">Log Out</a>
+        <div class="nameOfUser">Welcome, {{ user }}</div>
+        <a href="{{ url_for('logout') }}" class="logOut">Log Out</a>
         <div class="mySlides bgcolour1">
             <img class="animatee" src="../static/media/backgroundImg1.jpg" style="height: 85vh; width: 100%;">
             <div class="companyName">
-                CaloREE
+                <a href="{{ url_for('upload_file') }}" style="text-decoration: none;color: #111;">CaloREE</a><Paste>
             </div>
             <div class="caption1">
                 BANANA
@@ -69,7 +69,7 @@
             </section>
             <section class="calRemaining container">
                 <div class="animatee num">
-                    <b>-</b>
+                    <b>{{ usercal }}</b>
                 </div>
                 <div class="name">
                     Cals left
@@ -80,7 +80,7 @@
         <div class="mySlides bgcolour2">
             <img class="animatee" src="../static/media/backgroundImg2.jpg" style="height: 85vh; width: 100%;">
             <div class="companyName">
-                CaloREE
+                <a href="{{ url_for('upload_file') }}" style="text-decoration: none;color: #111;">CaloREE</a><Paste>
             </div>
             <div class="caption2">
                 CORN
@@ -127,7 +127,7 @@
             </section>
             <section class="calRemaining container">
                 <div class="animatee num">
-                    <b>-</b>
+                    <b>{{ usercal }}</b>
                 </div>
                 <div class="name">
                     Cals left
@@ -138,7 +138,7 @@
         <div class="mySlides bgcolour3">
             <img class="animatee" src="../static/media/backgroundImg3.jpg" style="height: 85vh; width: 100%;">
             <div class="companyName">
-                CaloREE
+                <a href="{{ url_for('upload_file') }}" style="text-decoration: none;color: #111;">CaloREE</a><Paste>
             </div>
             <div class="caption3">
                 DIMSUM
@@ -185,7 +185,7 @@
             </section>
             <section class="calRemaining container">
                 <div class="animatee num">
-                    <b>-</b>
+                    <b>{{ usercal }}</b>
                 </div>
                 <div class="name">
                     Cals left
