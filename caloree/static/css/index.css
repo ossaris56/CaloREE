@@ -161,7 +161,7 @@
     border-radius: 7px;
 }
 
-.signUp {
+.signUp, .logOut {
     position: fixed;
     top: 8%;
     left: 80%;
@@ -175,7 +175,15 @@
     border-radius: 7px;
 }
 
-.calorie, .carb, .fats, .protein, .fibre, .calRemaining {
+.nameOfUser {
+    position: fixed;
+    top: 9%;
+    right: 20%;
+    z-index: 99;
+    color: black;
+}
+
+.calorie, .carb, .fats, .protein, .fibre, .calRemaining, .calorieR, .carbR, .fatsR, .proteinR, .fibreR {
     position: absolute;
     top: 85%;
     margin-left: auto;
@@ -187,22 +195,42 @@
 }
 
 .calorie {
-    left: 20%;
+    left: 25%;
 }
 
 .carb {
-    left: 30%;
+    left: 35%;
 }
 
 .fibre {
-    left: 40%;
+    left: 45%;
 }
 
 .fats {
+    left: 55%;
+}
+
+.protein {
+    left: 63%;
+}
+
+.calorieR {
+    left: 20%;
+}
+
+.carbR {
+    left: 30%;
+}
+
+.fibreR {
+    left: 40%;
+}
+
+.fatsR {
     left: 50%;
 }
 
-.protein{
+.proteinR {
     left: 58%;
 }
 
