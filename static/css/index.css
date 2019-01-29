@@ -137,11 +137,7 @@
     text-decoration: none;
 }
 
-<<<<<<< HEAD
 .takePicBtn:hover, .uploadPicBtn:hover {
-=======
-.takePicBtn:hover, .uploadPicBtn:hover, .signIn:hover, .signUp:hover {
->>>>>>> 2499547920b6dba46f7da192ed829c6176d4eec6
     background-color: lightgray; /* Add a dark-grey background on hover */
 }
 
@@ -152,29 +148,19 @@
 .signIn {
     position: fixed;
     top: 8%;
-    left: 76%;
+    left: 77%;
     z-index: 99;
     color: black;
     text-decoration: none;
-    border: none; 
-    outline: none; 
-    cursor: pointer;
-    padding: 7px;
-    border-radius: 7px;
 }
 
 .signUp {
     position: fixed;
     top: 8%;
-    left: 80%;
+    left: 81%;
     z-index: 99;
     color: black;
     text-decoration: none;
-    border: none; 
-    outline: none; 
-    cursor: pointer;
-    padding: 7px;
-    border-radius: 7px;
 }
 
 .calorie, .carb, .fats, .protein, .fibre {
