@@ -18,7 +18,7 @@ validation_data_dir = 'food-101/testtrain'
 # number of epochs to train top model
 epochs = 50
 # batch size used by flow_from_directory and predict_generator
-batch_size = 128
+batch_size = 512
 
 
 def train_top_model():
