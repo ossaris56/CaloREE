@@ -150,6 +150,8 @@
     top: 8%;
     left: 77%;
     z-index: 99;
+    color: black;
+    text-decoration: none;
 }
 
 .signUp {
@@ -157,6 +159,8 @@
     top: 8%;
     left: 81%;
     z-index: 99;
+    color: black;
+    text-decoration: none;
 }
 
 .calorie, .carb, .fats, .protein, .fibre {
