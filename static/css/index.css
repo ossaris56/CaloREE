@@ -145,6 +145,20 @@
     display: none;
   }
 
+.signIn {
+    position: fixed;
+    top: 8%;
+    left: 77%;
+    z-index: 99;
+}
+
+.signUp {
+    position: fixed;
+    top: 8%;
+    left: 81%;
+    z-index: 99;
+}
+
 .calorie, .carb, .fats, .protein, .fibre {
     position: absolute;
     top: 85%;
