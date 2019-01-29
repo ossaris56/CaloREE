@@ -143,7 +143,7 @@
     background-color: lightgray; /* Add a dark-grey background on hover */
 }
 
-.takePicBtn input[accept*="camera"], .uploadPicBtn input[accept*="camera"]{
+.takePicBtn input[accept*="camera"], .uploadPicBtn input[accept*="image"]{
     display: none;
   }
 

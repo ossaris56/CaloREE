@@ -6,33 +6,44 @@ from flask_login import login_user, logout_user
 from PIL import Image
 from werkzeug.utils import secure_filename
 import os
+from flask import send_from_directory
+from werkzeug import SharedDataMiddleware
+from caloree.predict import predict
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 @app.route("/", methods=['GET', 'POST'])
-def index():
-    return render_template('Index.html')
-
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
-            return redirect(url_for('index')
+            return redirect(request.url)
         file = request.files['file']
         # if user does not select file, browser also
-        # submit a empty part without filename
+        # submit an empty part without filename
         if file.filename == '':
             flash('No selected file')
-            return redirect(url_for('index')
+            return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                                    filename=filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+            predicted_food = predict('caloree/static/uploads/' + filename)
+            image_url = '~/CaloREE/caloree/uploads/' + filename
+            name = Food.query.filter_by(name=predicted_food).first().name
+            calorie = Food.query.filter_by(name=predicted_food).first().calorie
+            carbs = Food.query.filter_by(name=predicted_food).first().carbs
+            fibre = Food.query.filter_by(name=predicted_food).first().fibre
+            fats = Food.query.filter_by(name=predicted_food).first().fats
+            protein = Food.query.filter_by(name=predicted_food).first().protein
+            return render_template('prediction.html', name=name, calorie=calorie, carbs=carbs, fibre=fibre, fats=fats, protein=protein, image=image_url)
+                
+    return render_template('Index.html')
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @app.route("/login", methods=['GET', 'POST'])                                                               
 def login():                                                                                                
@@ -61,4 +72,5 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
 

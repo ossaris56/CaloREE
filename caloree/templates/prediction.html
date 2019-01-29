@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heng Zi Hui & Chua Zhao Lin Jasper">
+    <meta name="description" content="Assignment CaloREE landing page">
+    <link rel="icon" type="image/png" href="..\static\media\logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <title>CaloREE</title>
+</head>
+<body class="backgroundImg">
+    <div class="content container">
+        <form method=POST id="uploadForm" enctype=multipart/form-data>
+            <label class="takePicBtn">Take Picture<input type="file" id="uploadPicture" name="file" accept="image/*;capture=camera"></label>
+            <label class="uploadPicBtn">Upload Picture<input type="file" id="uploadPicture2" name="file" accept="image/*"></label>
+        </form>
+        <a href="/login" class="signIn">Sign In</a>
+        <a href="/register" class="signUp">Sign Up</a>
+        <div class="mySlides bgcolour1">
+            <img class="animatee" src="../uploads/6.jpg" style="height: 85vh; width: 100%;">
+            <div class="companyName">
+                CaloREE
+            </div>
+            <div class="caption1">
+                {{ name }}
+            </div>
+            <section class="calorie container">
+                <div class="animatee num">
+                    <b>{{ calorie }}</b>
+                </div>
+                <div class="name">
+                    Calories
+                </div>
+            </section>
+            <section class="carb container">
+                <div class="animatee num">
+                    <b>{{ carbs }}g</b>
+                </div>
+                <div class="name">
+                    Carbs
+                </div>
+            </section>
+            <section class="fibre container">
+                <div class="animatee num">
+                    <b>{{ fibre }}g</b>
+                </div>
+                <div class="name">
+                    Fibre
+                </div>
+            </section>
+            <section class="fats container">
+                <div class="animatee num">
+                    <b>{{ fats }}g</b>
+                </div>
+                <div class="name">
+                    Fats
+                </div>
+            </section>
+            <section class="protein container">
+                <div class="animatee num">
+                    <b>{{ protein }}g</b>
+                </div>
+                <div class="name">
+                    Protein
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="../static/js/index.js"></script>
+    <!-- Banana: 89calories, corn:86.04cal, dimsum-35cal-->
+    <!-- still gotta add in the sign up sign in button, the calorie, and adjust the slideshow animation -->
+</body>
+</html>
