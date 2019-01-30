@@ -19,54 +19,56 @@
         </form>
         <a href="/login" class="signIn">Sign In</a>
         <a href="/register" class="signUp">Sign Up</a>
-        <div class="mySlides bgcolour1" style="height: 86vh;">
-            <img class="animatee" src="../static/uploads/{{ filename }}" style="height: 69vh; display: block; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 20px; max-width: 85%;">
+        <div class="mySlides bgcolour1"> 
+            <img class="animatee" src="../static/uploads/{{ filename }}" style="height: 69vh; display: block; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 20px; max-width: 85%; object-fit: cover;">
             <div class="companyName">
                 <a href="{{ url_for('upload_file') }}" style="text-decoration: none;color: #111;">CaloREE</a>
             </div>
-            <div class="caption1">
+            <div class="caption4">
                 {{ name }}
             </div>
-            <section class="calorie container">
-                <div class="animatee num">
-                    <b>{{ calorie }}</b>
-                </div>
-                <div class="name">
-                    Calories
-                </div>
-            </section>
-            <section class="carb container">
-                <div class="animatee num">
-                    <b>{{ carbs }}g</b>
-                </div>
-                <div class="name">
-                    Carbs
-                </div>
-            </section>
-            <section class="fibre container">
-                <div class="animatee num">
-                    <b>{{ fibre }}g</b>
-                </div>
-                <div class="name">
-                    Fibre
-                </div>
-            </section>
-            <section class="fats container">
-                <div class="animatee num">
-                    <b>{{ fats }}g</b>
-                </div>
-                <div class="name">
-                    Fats
-                </div>
-            </section>
-            <section class="protein container">
-                <div class="animatee num">
-                    <b>{{ protein }}g</b>
-                </div>
-                <div class="name">
-                    Protein
-                </div>
-            </section>
+            <div class="nutrition">
+                <section class="calorie container">
+                    <div class="animatee num">
+                        <b>{{ calorie }}</b>
+                    </div>
+                    <div class="name">
+                        Calories
+                    </div>
+                </section>
+                <section class="carb container">
+                    <div class="animatee num">
+                        <b>{{ carbs }}g</b>
+                    </div>
+                    <div class="name">
+                        Carbs
+                    </div>
+                </section>
+                <section class="fibre container">
+                    <div class="animatee num">
+                        <b>{{ fibre }}g</b>
+                    </div>
+                    <div class="name">
+                        Fibre
+                    </div>
+                </section>
+                <section class="fats container">
+                    <div class="animatee num">
+                        <b>{{ fats }}g</b>
+                    </div>
+                    <div class="name">
+                        Fats
+                    </div>
+                </section>
+                <section class="protein container">
+                    <div class="animatee num">
+                        <b>{{ protein }}g</b>
+                    </div>
+                    <div class="name">
+                        Protein
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
     <script src="../static/js/index.js"></script>

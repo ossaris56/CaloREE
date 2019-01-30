@@ -20,11 +20,11 @@
         <div class="nameOfUser">Welcome, {{ user }}</div>
         <a href="{{ url_for('logout') }}" class="logOut">Log Out</a>
         <div class="mySlides bgcolour1" style="height: 86vh;">
-            <img class="animatee" src="../static/uploads/{{ filename }}" style="height: 69vh; display: block; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 20px; max-width: 85%;">
+            <img class="animatee" src="../static/uploads/{{ filename }}" style="height: 69vh; display: block; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 20px; max-width: 85%; object-fit: cover;">
             <div class="companyName">
                 <a href="{{ url_for('upload_file') }}" style="text-decoration: none;color: #111;">CaloREE</a>
             </div>
-            <div class="caption1">
+            <div class="caption4">
                 {{ name }}
             </div>
             <section class="calorieR container">
